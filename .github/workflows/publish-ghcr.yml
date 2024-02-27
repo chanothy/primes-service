@@ -21,6 +21,15 @@ jobs:
       - name: Run the unit tests
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: false
+
       - name: Build and push the image
         run: |
           docker login --username chanothy --password ${{secrets.ACCESS_TOKEN}} ghcr.io

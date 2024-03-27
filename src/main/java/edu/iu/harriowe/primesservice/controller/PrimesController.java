@@ -1,6 +1,6 @@
-package edu.iu.timchan.primesservice.controller;
+package edu.iu.harriowe.primesservice.controller;
 
-import edu.iu.timchan.primesservice.service.IPrimesService;
+import edu.iu.harriowe.primesservice.service.IPrimesService;
 import org.springframework.web.bind.annotation.*;
 
 

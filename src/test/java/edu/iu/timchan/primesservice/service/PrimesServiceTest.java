@@ -1,8 +1,8 @@
-package edu.iu.timchan.primesservice.service;
+package edu.iu.harriowe.primesservice.service;
 
 import org.junit.jupiter.api.Test;
 
-import edu.iu.timchan.primesservice.service.PrimesService;
+import edu.iu.harriowe.primesservice.service.PrimesService;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,11 +1,23 @@
 package edu.iu.harriowe.primesservice.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table
+@Entity
 public class Customer {
+    @Id
     private String username;
     private String password;
     public Customer(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Customer() {
+
     }
 
     public String getUsername() {

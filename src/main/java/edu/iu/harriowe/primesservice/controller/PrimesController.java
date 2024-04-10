@@ -2,6 +2,8 @@ package edu.iu.harriowe.primesservice.controller;
 
 import edu.iu.harriowe.primesservice.rabbitmq.MQSender;
 import edu.iu.harriowe.primesservice.service.IPrimesService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,7 +22,11 @@ public class PrimesController {
     @GetMapping("/{n}")
     public boolean isPrime(@PathVariable int n) {
         boolean result = primesService.isPrime(n);
-        mqSender.sendMessage(n, result);
+        Object principle = SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        String username = ((Jwt) principle).getSubject();
+        System.out.println(username);
+        mqSender.sendMessage(username, n, result);
         return result;
     }
 }
